@@ -37,7 +37,7 @@ class Pod(Logger):
 
                 return response
             else:
-                # print(f'Inflight requests: {self.inflight_requests} - {self.id}')
+                self.log.debug(f'Inflight requests: {self.inflight_requests} - {self.id}')
                 await asyncio.sleep(0.01)
 
           
@@ -45,11 +45,9 @@ class Pod(Logger):
         task =  asyncio.create_task(self.process_worker(request))
         task.add_done_callback(self.pending_tasks.discard)
 
-
         await task
         
         return task.result()
-
 
     def get_inflight_requests(self):
         return len(self.pending_tasks)

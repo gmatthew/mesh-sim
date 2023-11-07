@@ -72,7 +72,7 @@ class Cluster(Logger):
             raise Exception('Simulator has no cluster load balancer')
         
         selected_pod = self.cluster_load_balancer.choose_pod()
-        # print(f'FES selected pod: {selected_pod.id}')
+        self.log.debug(f'FES selected pod: {selected_pod.id}')
 
         response = await selected_pod.process(request)
         
@@ -83,7 +83,7 @@ class Cluster(Logger):
         # convert latency to milliseconds
         latency = round(latency * 1000)
        
-#        print(f'FES response: {latency}')
+        self.log.debug(f'FES response: {latency}')
         response.set_latency(latency)
 
         return response
