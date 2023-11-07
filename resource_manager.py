@@ -1,5 +1,8 @@
+from logger import Logger
+
 class ResourceManager:
     def __init__(self, cpu, memory, storage):
+        super().__init__()
         self.cpu_limit = cpu
         self.memory_limit = memory
         self.storage_limit = storage
@@ -9,7 +12,6 @@ class ResourceManager:
         self.storage = 0
 
     def reserve_cpu(self, cpu):
-        # print(f'current: {self.cpu}, request: {cpu}, limit: {self.cpu_limit}')
         if self.cpu + cpu > self.cpu_limit:
             return False
 

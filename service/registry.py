@@ -1,7 +1,9 @@
 from .service import Service
+from logger import Logger
 
-class ServiceRegistry():
+class ServiceRegistry(Logger):
     def __init__(self):
+        super().__init__()
         self.services = {}
 
     def register(self, service):

@@ -1,9 +1,11 @@
 from application.application import Application
 from loadbalancer.loadbalancer_factory import LoadBalancerFactory
 from loadbalancer.loadbalancer import LoadBalancerType
+from logger import Logger
 
-class Proxy: 
+class Proxy(Logger): 
     def __init__(self, id, service_registry,  egress_lb_type: LoadBalancerType, service_dependencies = []):
+        super().__init__()
         self.id = id
         self.application = None
         self.service_registry = service_registry

@@ -2,12 +2,14 @@ import uuid
 from proxy import Proxy
 from resource_manager import ResourceManager
 from loadbalancer.loadbalancer import LoadBalancerType
+from logger import Logger
 
 import asyncio
 
-class Pod:
+class Pod(Logger):
     # Memory and Storage are in MB
     def __init__(self, id, application, service_registry, proxy_egress_lb_type: LoadBalancerType, memory = 512, cpu = 100, storage = 512):
+        super().__init__()
         self.id = id
         self.inflight_requests = 0
         self.resource_manager = ResourceManager(cpu=cpu, memory=memory, storage=storage)

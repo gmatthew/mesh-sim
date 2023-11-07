@@ -1,5 +1,8 @@
-class Application:
+from logger import Logger
+
+class Application(Logger):
     def __init__(self, id, dependencies = []):
+        super().__init__()
         self.id = id
         self.dependencies = dependencies
 

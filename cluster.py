@@ -2,16 +2,16 @@ from application.web_application import WebApplication
 from pod import Pod
 from service.service import Service
 from service.registry import ServiceRegistry
-from simhttp.request import Request
 
-import asyncio
 import time
 
 from loadbalancer.loadbalancer import LoadBalancerType
 from loadbalancer.loadbalancer_factory import LoadBalancerFactory
+from logger import Logger
 
-class Cluster:
+class Cluster(Logger):
     def __init__(self):
+        super().__init__()
         self.frontend_service = None
         self.cluster_load_balancer = None
 
@@ -85,5 +85,5 @@ class Cluster:
        
 #        print(f'FES response: {latency}')
         response.set_latency(latency)
-       
+
         return response

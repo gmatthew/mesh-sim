@@ -1,8 +1,9 @@
 from pod import Pod
-
+from logger import Logger
 # Service is a collection of pods
-class Service:
+class Service(Logger):
     def __init__(self, name):
+        super().__init__()
         self.name = name
         self.pods = []
 
