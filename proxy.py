@@ -13,6 +13,9 @@ class Proxy(Logger):
         self.egress_lb_type = egress_lb_type
         self.load_balancers = {}
        
+        #@TODO(gerardm3): Add filter manager to proxy, then configure it to process the request through the 
+        # filter chain before calling the application and after calling the application
+
     # This will be used to lazy load the load balancers
     def configure_egress_load_balancers(self, lb_type):
          # There will be a load balancer for each egress service

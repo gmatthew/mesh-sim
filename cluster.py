@@ -19,6 +19,7 @@ class Cluster(Logger):
         self.inflight_requests = 0
 
     def configure(self):
+        # @TODO(gerardm3): This should all be configured from reading a config file
         # Create registry
         registry = ServiceRegistry()
 
