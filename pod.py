@@ -35,7 +35,7 @@ class Pod:
 
                 return response
             else:
-                print(f'Inflight requests: {self.inflight_requests} - {self.id}')
+                # print(f'Inflight requests: {self.inflight_requests} - {self.id}')
                 await asyncio.sleep(0.01)
 
           

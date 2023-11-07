@@ -83,7 +83,7 @@ class Cluster:
         # convert latency to milliseconds
         latency = round(latency * 1000)
        
-        print(f'FES response: {latency}')
+#        print(f'FES response: {latency}')
         response.set_latency(latency)
        
         return response

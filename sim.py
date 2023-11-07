@@ -6,6 +6,6 @@ import asyncio
 
 if __name__ == "__main__":
     cluster = Cluster()
-    workload_generator = WorkloadGenerator(cluster=cluster, connections=128, rps=1500, duration=30)
+    workload_generator = WorkloadGenerator(cluster=cluster, connections=128, rps=1500, duration=10)
    
     asyncio.run(workload_generator.do_work())
